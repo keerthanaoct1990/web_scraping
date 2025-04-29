@@ -43,6 +43,9 @@ jobs:
           --image azurewebscraper.azurecr.io/imdb-scraper:latest \
           --cpu 1 \
           --memory 1.5 \
+          --registry-login-server azurewebscraper.azurecr.io \
+          --registry-username ${{ secrets.ACR_USERNAME }} \
+          --registry-password ${{ secrets.ACR_PASSWORD }} \
           --restart-policy OnFailure \
           --ip-address public \
           --ports 80
