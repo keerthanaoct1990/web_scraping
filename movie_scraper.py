@@ -40,7 +40,7 @@ def save_to_csv(df, filename="imdb_top_movies.csv"):
     print(f"Saved to {filename}")
 
 def search_movie(df, query):
-    result = df[df['Title'].str.contains(query, case=False, na=False)]
+    result = df[df['Movie'].str.contains(query, case=False, na=False)]
     if result.empty:
         print("No matching movie found.")
     else:
