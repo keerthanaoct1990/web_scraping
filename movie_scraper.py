@@ -31,7 +31,7 @@ def scrape_imdb_top_movies():
 
             movies.append((movie_name, year, float(rating)))
 
-    df = pd.DataFrame(movies, columns=["Title", "Year", "Rating"])
+    df = pd.DataFrame(movies, columns=["Movie", "Year", "Rating"])
     return df
 
 #save to csv file

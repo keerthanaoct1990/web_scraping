@@ -26,3 +26,23 @@ jobs:
       run: |
         docker build -t azurewebscraper.azurecr.io/imdb-scraper:latest .
         docker push azurewebscraper.azurecr.io/imdb-scraper:latest
+
+    - name: Delete existing container (optional)
+      continue-on-error: true
+      run: |
+        az container delete \
+          --resource-group demo \
+          --name democontainer \
+          --yes
+
+    - name: Deploy to Azure Container Instance
+      run: |
+        az container create \
+          --resource-group demo \
+          --name democontainer \
+          --image azurewebscraper.azurecr.io/imdb-scraper:latest \
+          --cpu 1 \
+          --memory 1.5 \
+          --restart-policy OnFailure \
+          --ip-address public \
+          --ports 80
