@@ -34,6 +34,7 @@ def scrape_imdb_top_movies():
     df = pd.DataFrame(movies, columns=["Title", "Year", "Rating"])
     return df
 
+#save to csv file
 def save_to_csv(df, filename="imdb_top_movies.csv"):
     df.to_csv(filename, index=False)
     print(f"Saved to {filename}")
