@@ -47,5 +47,6 @@ jobs:
           --registry-username ${{ secrets.ACR_USERNAME }} \
           --registry-password ${{ secrets.ACR_PASSWORD }} \
           --restart-policy OnFailure \
+          --os-type Linux \
           --ip-address public \
           --ports 80
